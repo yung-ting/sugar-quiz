@@ -12,7 +12,7 @@
     ${num} / 5 points
   </header>
   <div id="question">
-    <h2>How much sugar is contained in one <span id="product-qty"></span> <span id="product-name"></span>?</h2>
+    <h2>How much sugar is contained in <span id="product-qty">330 ml</span> <span id="product-name"> Coca Cola</span>?</h2>
   </div>
   <div>
     <img id="product-img" src="https://static.openfoodfacts.org/images/products/544/900/000/0996/front_en.193.200.jpg" alt="product"/>
@@ -27,11 +27,11 @@
   <div>
     <img class="sugar-cube-img" src="images/sugar cube.svg" alt="suger cube"/>
   </div>
-  <div>
-    <h4>${Exactly} or ${Nope}! It contains ${products.cubeCount} cubes!</h4>
+  <div id="outcome-text">
+    <h4><span id="right-or-wrong"></span><span id="outcome-sugar-cubes"></span></h4>
   </div>
   <div>
-    <button type="reset">Next product</button><br><br>
+    <button type="reset" class="btn-next-product">Next product</button><br><br>
   </div>
     <script src="data.js"></script>
     <script src="index.js"></script>
