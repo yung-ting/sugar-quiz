@@ -11,19 +11,18 @@
   <header>
     ${num} / 5 points
   </header>
-  <div>
-    <h2>How much sugar is contained in one ${products.qty} ${products.name}?</h2>
+  <div id="question">
+    <h2>How much sugar is contained in one <span id="product-qty"></span> <span id="product-name"></span>?</h2>
   </div>
   <div>
-    <img class="prouduct-img" src="https://static.openfoodfacts.org/images/products/544/900/000/0996/front_en.193.200.jpg" alt="product"/>
+    <img id="product-img" src="https://static.openfoodfacts.org/images/products/544/900/000/0996/front_en.193.200.jpg" alt="product"/>
   </div>
-  <div>
+  
     <div>
       <input type="number" id="guessOfUser" pattern="[0-9]{0,50}" value="0">
       <label for="guessOfUser">sugar cubes</label> <br><br>
       <button class="btn-check-fact">Check out the fact</button><br><br>
     </div>
-  </div>
   <p id="demo"></p>
   <div>
     <img class="sugar-cube-img" src="images/sugar cube.svg" alt="suger cube"/>
@@ -34,7 +33,7 @@
   <div>
     <button type="reset">Next product</button><br><br>
   </div>
-    <script src="src/data.js"></script>
+    <script src="data.js"></script>
     <script src="index.js"></script>
 </body>
 </html>
