@@ -71,4 +71,53 @@ let products = [
       cubeCount: 9.6,
       image: 'https://static.openfoodfacts.org/images/products/544/900/001/1527/front_en.49.200.jpg',
     },
+    {
+      name: 'Volvic zest',
+      qty: '500 ml',
+      sugarPer100g: 1,
+      cubeCount: 1.25,
+      image: 'https://static.openfoodfacts.org/images/products/10576403/front_fr.142.200.jpg',
+    },
+    {
+      name: 'Alpro Roasted Almond Drink',
+      qty: '1 l',
+      sugarPer100g: 3,
+      cubeCount: 7.5,
+      image:'https://static.openfoodfacts.org/images/products/541/118/811/0835/front_en.216.200.jpg',
+    },
+    {
+      name: 'Kinder Country',
+      qty: '211 g',
+      sugarPer100g: 49.1,
+      cubeCount: 25.9,
+      image:'https://static.openfoodfacts.org/images/products/400/840/026/0921/front_de.90.400.jpg'
+    },
+    {
+      name: 'Oreo Original',
+      qty: '154 g',
+      sugarPer100g: 38,
+      cubeCount: 14.63 ,
+      image:'https://static.openfoodfacts.org/images/products/762/230/033/6738/front_en.73.400.jpg'
+    },
+    {
+      name: 'Alesto Nuss-Frucht-Mix',
+      qty: '200g',
+      sugarPer100g: 37.3,
+      cubeCount: 18.65,
+      image:'https://static.openfoodfacts.org/images/products/20815394/front_fr.26.400.jpg'
+    },
+    {
+      name: 'Crunchy muesli chocolate',
+      qty: '500 g',
+      sugarPer100g: 23,
+      cubeCount: 28.75,
+      image:'https://static.openfoodfacts.org/images/products/20708405/front_fr.52.400.jpg'
+    },
+    {
+      name: 'Dr Oetker Pizza',
+      qty: '355 g',
+      sugarPer100g: 2.9,
+      cubeCount: 2.6 ,
+      image:'https://static.openfoodfacts.org/images/products/400/172/481/9301/front_de.8.400.jpg'
+    }
 ]
