@@ -5,19 +5,14 @@ let inputField = document.getElementById("guessOfUser");
 let rightOrWrong = document.getElementById("right-or-wrong");
 let productSugarElem = document.getElementById("outcome-sugar-cubes");
 let productIndx = 0;
+let questionCounts = document.getElementById('points-base');
+//hide and show
+let hiddenBtn = document.querySelector('.btn-next-product');
+let showBtn = document.querySelector('.btn-see-results');
+let mainPage = document.getElementById('main-page');
 
-const cubeImgContainer = document.getElementById("sugar-cube-counts");
-//for (let x = 0; x < 3; x++) {
-//     const boardElement = document.createElement('div');
-//     boardElement.setAttribute('class', 'board');
-//     roomElement.appendChild(boardElement);
-
-//     for (let y = 0; y < 3; y++) {
-//         const blockElement = document.createElement('div');
-//         blockElement.setAttribute('class', 'block');
-//         boardElement.appendChild(blockElement);
-//     }
-// }
+let cubeImgContainer = document.getElementById("sugar-cube-counts");
+let accumQuestions = 0;
 
 function updateProducts() {
     productIndx = Math.floor(Math.random() * products.length);
@@ -25,7 +20,10 @@ function updateProducts() {
     productNameElem.innerText = products[productIndx].name;
     productImgElem.src = products[productIndx].image;
     inputField.value = 0;
+    questionCounts.innerHTML ++
     document.getElementById('outcome-text').innerHTML = "";
+
+    accumQuestions ++
 }
 
 function compareNumbers() {
@@ -42,31 +40,83 @@ function compareNumbers() {
         productSugarElem.innerText = Math.round(products[productIndx].cubeCount);
         document.getElementById('outcome-text').innerHTML = `Nope! It contains about ${productSugarElem.innerText} cubes!`
     }
-
+}
+//======
+function showNextProd() {
+    if (accumQuestions == 5) {
+        hiddenBtn.style.visibility = 'hidden';
+    }
 }
 
-function updateSugarCubes() {
-    for (let i = 0; i < productSugarElem.innerText; i ++ ) {
-       let cubeImgElem = document.createElement('img');
-       cubeImgElem.src =  'images/sugar cube.svg'; 
-       cubeImgElem.setAttribute('class','sugar-cube-img');
-       cubeImgContainer.appendChild(cubeImgElem);
+function showResultBtn() {
+    if (accumQuestions >= 5) {
+        showBtn.style.display = "block";
+    } else {
+        showBtn.style.display = "none";
     }
+}
+
+function hidePlayAgainBtn() {
+    document.querySelector('.btn-play-again').style.display = "none";
+}
+
+function showPlayAgainBtn() {
+    document.querySelector('.btn-play-again').style.display = "block";
+}
+///======== above are not working
+function hideMainPageElem() {
+    mainPage.style.display = "none";
+}
+
+function showMainPageElem() {
+    mainPage.style.display = "block";
+}
+
+function updateCubesBySec() {
+    for (let i = 0; i < productSugarElem.innerText; i ++ ) { 
+        task(i); 
+     } 
+       
+    function task(i) { 
+       setTimeout(function() { 
+           // Add tasks to do 
+           let cubeImgElem = document.createElement('img');
+           cubeImgElem.src =  'images/sugar cube.svg'; 
+           cubeImgElem.setAttribute('class','sugar-cube-img');
+           cubeImgContainer.appendChild(cubeImgElem);
+       }, 220 * i); 
+     } 
 }
 
 function resetSugarCubes() {
     cubeImgContainer.innerHTML = "";
 }
 
+
+
 updateProducts();
+showResultBtn();
+hidePlayAgainBtn();
+
 
 //EventListeners
 document.querySelector('.btn-check-fact').addEventListener('click', () => {
     compareNumbers();
-    updateSugarCubes();
+    updateCubesBySec();
   });
 
 document.querySelector('.btn-next-product').addEventListener('click', () => {
     updateProducts();
     resetSugarCubes();
+    showNextProd();
+    showResultBtn();
   });
+
+document.querySelector('.btn-see-results').addEventListener('click', () => {
+    hideMainPageElem();
+    showPlayAgainBtn();
+});
+
+document.querySelector('.btn-play-again').addEventListener('click', () => {
+    showMainPageElem();
+});

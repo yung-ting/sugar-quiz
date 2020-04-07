@@ -8,8 +8,9 @@
 </head>
 
 <body>
+<div id='main-page'>
   <header>
-    <span id='points'>0</span> / 5 points
+    <span id='points'>0</span> / <span id='points-base'>0</span> points
   </header>
   <div id="question">
     <h2>How much sugar is contained in <span id="product-qty">330 ml</span> <span id="product-name"> Coca Cola</span>?</h2>
@@ -25,15 +26,21 @@
     </div>
   <p id="demo"></p>
   <div id="sugar-cube-counts">
-    <img class="sugar-cube-img" src="images/sugar cube.svg" alt="suger cube"/>
-    
+    <!-- <img class="sugar-cube-img" src="images/sugar cube.svg" alt="suger cube"/> -->
   </div>
   <div id="outcome-text">
     <h4><span id="right-or-wrong"></span><span id="outcome-sugar-cubes"></span></h4>
   </div>
   <div>
     <button type="reset" class="btn-next-product">Next product</button><br><br>
+    <button type="reset" class="btn-see-results">See results</button><br><br>
   </div>
+</div>
+<div id="result-page">
+  <div id='btn-play-again'>
+    <button class="btn-play-again">Play again</button><br><br>
+  </div>
+</div>
     <script src="data.js"></script>
     <script src="index.js"></script>
 </body>
