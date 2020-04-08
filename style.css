@@ -1,7 +1,56 @@
 body {
-    
     font-family: 'Roboto Mono', monospace;
     font-family: 'Quicksand', sans-serif;
+}
+
+.start-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20rem;
+    margin-top: 20rem;
+}
+
+.main-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.question {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.product-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.product-image-box {
+    margin: 3rem;
+}
+
+.facts-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 4rem;
+    margin-right: 4rem;
+}
+
+.result-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20rem;
+    margin-top: 20rem;
 }
 
 .btn-check-fact {
@@ -14,7 +63,24 @@ body {
     font-family: 'Quicksand', sans-serif;
 }
 
+.btn-start {
+    font-family: 'Roboto Mono', monospace;
+    font-family: 'Quicksand', sans-serif;
+}
+
+.bottom-buttons {
+    font-family: 'Roboto Mono', monospace;
+    font-family: 'Quicksand', sans-serif;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
 .sugar-cube-img {
-    width: 10%;
+    width: 6%;
     margin-top: 1rem;
+}
+
+h2 {
+    font-size: 2rem;
 }

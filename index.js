@@ -110,7 +110,7 @@ function updateCubesBySec() {
            cubeImgElem.src =  'images/sugar cube.svg'; 
            cubeImgElem.setAttribute('class','sugar-cube-img');
            cubeImgContainer.appendChild(cubeImgElem);
-       }, 100 * i); 
+       }, 44 * i); 
      } 
 }
 
@@ -174,4 +174,5 @@ document.querySelector('.btn-play-again').addEventListener('click', () => {
     hidePlayAgainBtn();
     showNextProdBtn();
     hideOrShowResultBtn();
+    enableBtns();
 });

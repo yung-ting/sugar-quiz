@@ -8,42 +8,49 @@
 </head>
 
 <body>
-<div id='start-page'>
-  <button class="btn-start">Start the game</button><br><br>
+<div id="start-page" class="start-page">
+  <p>How much sugar do you eat every day? You may be suprised after this quiz.</p>
+  <div><button class="btn-start">Start the game</button></div>
 </div>
-<div id='main-page'>
+<div id='main-page' class="main-page">
   <header>
     <span id='points'>0</span> / <span id='points-base'>0</span> points
   </header>
-  <div id="question">
+  <div id="question" class="question">
     <h2>How much sugar is contained in <span id="product-qty">330 ml</span> <span id="product-name"> Coca Cola</span>?</h2>
   </div>
-  <div>
-    <img id="product-img" src="https://static.openfoodfacts.org/images/products/544/900/000/0996/front_en.193.200.jpg" alt="product"/>
-  </div>
-  
-    <div>
-      <input type="number" id="guessOfUser" pattern="[0-9]{0,50}" value="0">
-      <label for="guessOfUser">sugar cubes</label> <br><br>
-      <button class="btn-check-fact">Check out the fact</button><br><br>
+
+  <section class='product-info'>
+    <div class="product-image-box">
+      <img id="product-img" src="https://static.openfoodfacts.org/images/products/544/900/000/0996/front_en.193.200.jpg" alt="product"/>
     </div>
-  <p id="demo"></p>
-  <div id="sugar-cube-counts">
-    <!-- <img class="sugar-cube-img" src="images/sugar cube.svg" alt="suger cube"/> -->
-  </div>
-  <div id="outcome-text">
-    <h4><span id="right-or-wrong"></span><span id="outcome-sugar-cubes"></span></h4>
-  </div>
-  <div>
+
+    <div>
+        <input type="number" id="guessOfUser" min="0" max="150" value="0">
+        <label for="guessOfUser">sugar cubes</label> <br><br>
+        <button class="btn-check-fact">Check out the fact</button><br><br>
+    </div>
+  </section>
+  
+  <section class="facts-container">
+    <p id="demo"></p>
+    <div id="outcome-text">
+      <h4><span id="right-or-wrong"></span><span id="outcome-sugar-cubes"></span></h4>
+    </div>
+    <div id="sugar-cube-counts">
+      <!-- <img class="sugar-cube-img" src="images/sugar cube.svg" alt="suger cube"/> -->
+    </div>
+  </section>
+  
+
+  <div class="bottom-buttons">
     <button type="reset" class="btn-next-product">Next product</button><br><br>
     <button type="reset" class="btn-see-results">See results</button><br><br>
   </div>
 </div>
-<div id="result-page">
-  <div id="btn-play-again">
+<div id="result-page" class="result-page">
     <p id="result-text"></p>
     <button class="btn-play-again">Play again</button><br><br>
-  </div>
 </div>
     <script src="data.js"></script>
     <script src="index.js"></script>
