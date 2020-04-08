@@ -9,25 +9,31 @@
 
 <body>
 <div id="start-page" class="start-page">
-  <p>How much sugar do you eat every day? You may be suprised after this quiz.</p>
+  <div><img class="start-page-icon" src="sugar-cubes.png" alt=""></div>
+  <p>How much sugar have you been eaten? You may be suprised after this quiz.</p>
   <div><button class="btn-start">Start the game</button></div>
 </div>
+
 <div id='main-page' class="main-page">
+  <section class="upper-part"> 
   <header>
     <span id='points'>0</span> / <span id='points-base'>0</span> points
   </header>
   <div id="question" class="question">
     <h2>How much sugar is contained in <span id="product-qty">330 ml</span> <span id="product-name"> Coca Cola</span>?</h2>
   </div>
+ </section>
 
   <section class='product-info'>
     <div class="product-image-box">
-      <img id="product-img" src="https://static.openfoodfacts.org/images/products/544/900/000/0996/front_en.193.200.jpg" alt="product"/>
+      <img id="product-img" class="product-img" src="https://static.openfoodfacts.org/images/products/544/900/000/0996/front_en.193.200.jpg" alt="product"/>
     </div>
 
-    <div>
-        <input type="number" id="guessOfUser" min="0" max="150" value="0">
-        <label for="guessOfUser">sugar cubes</label> <br><br>
+    <div class="input-container">
+      <div class="input-and-unit">
+        <input class="input-field" type="number" id="guessOfUser" min="0" max="150" value="0">
+        <label for="guessOfUser" class="unit">sugar cubes (4g)</label> <br><br>
+      </div> 
         <button class="btn-check-fact">Check out the fact</button><br><br>
     </div>
   </section>
@@ -37,7 +43,7 @@
     <div id="outcome-text">
       <h4><span id="right-or-wrong"></span><span id="outcome-sugar-cubes"></span></h4>
     </div>
-    <div id="sugar-cube-counts">
+    <div id="sugar-cube-counts" class="sugar-cube-counts">
       <!-- <img class="sugar-cube-img" src="images/sugar cube.svg" alt="suger cube"/> -->
     </div>
   </section>
@@ -48,6 +54,7 @@
     <button type="reset" class="btn-see-results">See results</button><br><br>
   </div>
 </div>
+
 <div id="result-page" class="result-page">
     <p id="result-text"></p>
     <button class="btn-play-again">Play again</button><br><br>

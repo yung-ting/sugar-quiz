@@ -13,6 +13,7 @@ let startPage = document.getElementById('start-page');
 let hiddenBtn = document.querySelector('.btn-next-product');
 let showBtn = document.querySelector('.btn-see-results');
 let mainPage = document.getElementById('main-page');
+let resultPage =document.getElementById('result-page');
 
 let cubeImgContainer = document.getElementById("sugar-cube-counts");
 let accumQuestions = 0;
@@ -98,6 +99,14 @@ function showMainPageElem() {
     mainPage.style.display = "block";
 }
 
+function hideResultPageElem() {
+    resultPage.style.display = "none";
+}
+
+function showResultPageElem() {
+    resultPage.style.display = "block";
+}
+
 function updateCubesBySec() {
     for (let i = 0; i < productSugarElem.innerText; i ++ ) { 
         task(i); 
@@ -138,6 +147,7 @@ hideMainPageElem();
 updateProducts();
 hideOrShowResultBtn();
 hidePlayAgainBtn();
+hideResultPageElem();
 
 
 //EventListeners
@@ -153,10 +163,10 @@ document.querySelector('.btn-check-fact').addEventListener('click', () => {
   });
 
 document.querySelector('.btn-next-product').addEventListener('click', () => {
-    updateProducts();
+    updateProducts(); 
     resetSugarCubes();
     showNextProdBtn();
-    hideOrShowResultBtn();
+    hideOrShowResultBtn(); 
     enableBtns();
   });
 
@@ -164,6 +174,7 @@ document.querySelector('.btn-see-results').addEventListener('click', () => {
     hideMainPageElem();
     showPlayAgainBtn();
     showResultTexts();
+    showResultPageElem();
 });
 
 document.querySelector('.btn-play-again').addEventListener('click', () => {
@@ -175,4 +186,5 @@ document.querySelector('.btn-play-again').addEventListener('click', () => {
     showNextProdBtn();
     hideOrShowResultBtn();
     enableBtns();
+    hideResultPageElem();
 });
