@@ -13,7 +13,8 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    padding-top: 2rem;
+    padding: 20%;
+    padding-top: 2.3rem;
     background-image:url("pinkbackground-zucker");
     background-position: 0 20%;
     height: 100%;
@@ -26,7 +27,7 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    padding-top: 2rem;
+    padding-top: 2.3rem;
     background-image:url("dog-eat-too-much-zucker");
     background-position: 0 20%;
     height: 100%;
@@ -44,14 +45,16 @@ body {
     padding-left: 0.5rem;
     padding-right: 0.5rem;
     color:#F36B6B;
-    /* background-image: url(whitebackground.jpg) */
+}
+
+.start-page-text {
+    text-align: center;
+    font-weight: 100;
 }
 
 .question {
     color: navy;
     padding-bottom: 2.5rem;
-    /* border: navy; */
-    /* border-style: double; */
     width: 80%;
     height: 80%;
 }
@@ -103,13 +106,10 @@ body {
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    /* margin-left: 3rem; */
     padding-bottom: 2rem;
-    /* background-color: whitesmoke; */
 }
 
 .sugar-cube-counts {
-    /* flex-grow: 2; */
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -152,18 +152,16 @@ body {
 .btn-start {
     font-size: large;
     font-family: 'Roboto Mono', monospace;
-     /* font-family: 'Quicksand', sans-serif;  */
-     display:inline-block;
-     padding:1.0em 1.6em;
-     border:0.1em solid navy;
-     margin:1em 0.3em 0.3em 0.3em;
-     border-radius:0.12em;
-     box-sizing: border-box;
-     text-decoration:none;
-     color: navy;
-     text-align:center;
-     transition: all 0.2s;
-     background-color: transparent;
+    padding:1.0em 1.6em;
+    border:0.1em solid navy;
+    margin:1em 0.3em 0.3em 0.3em;
+    border-radius:0.12em;
+    box-sizing: border-box;
+    text-decoration:none;
+    color: navy;
+    text-align:center;
+    transition: all 0.2s;
+    background-color: transparent;
 }
 
 .btn-play-again {
@@ -185,11 +183,9 @@ body {
 
 .bottom-buttons {
     font-family: 'Roboto Mono', monospace;
-    /* font-family: 'Quicksand', sans-serif;  */
     display: flex;
     align-items: center;
     flex-direction: column;
-    /* display:inline-block; */
     
 }
 
@@ -231,6 +227,7 @@ h2 {
 
 .start-page-icon {
     width: 6rem;
+
 }
 
 

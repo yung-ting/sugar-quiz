@@ -171,11 +171,15 @@ function updateCubesBySec() {
        
     function task(i) { 
        setTimeout(function() { 
-           // Add tasks to do 
            let cubeImgElem = document.createElement('img');
            cubeImgElem.src =  'images/sugar cube.svg'; 
            cubeImgElem.setAttribute('class','sugar-cube-img');
            cubeImgContainer.appendChild(cubeImgElem);
+
+           if (i == productSugarElem.innerText - 1) {
+            showNextProdBtn();
+            hideOrShowResultBtn(); 
+           }
        }, 44 * i); 
      } 
 }
@@ -218,13 +222,11 @@ document.querySelector('.btn-check-fact').addEventListener('click', () => {
     compareNumbers();
     updateCubesBySec();
     disableBtns();
-    showNextProdBtn();
   });
 
 document.querySelector('.btn-next-product').addEventListener('click', () => {
     updateProducts(); 
     resetSugarCubes();
-    hideOrShowResultBtn(); 
     enableBtns();
     onlyHideProdBtn();
   });
