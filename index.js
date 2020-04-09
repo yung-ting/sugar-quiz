@@ -24,7 +24,7 @@ let accumQuestions = 0;
 function retrieveData() {
     const xmlhttp = new XMLHttpRequest();
     const method = 'GET';
-    const url = 'https://world.openfoodfacts.org/cgi/search.pl?action=process&tagtype_0=countries&tag_contains_0=contains&tag_0=germany&nutriment_0=sugars&nutriment_compare_0=gt&nutriment_value_0=1&sort_by=unique_scans_n&page_size=200&axis_x=energy-kj&axis_y=products_n&action=display&json=true';
+    const url = 'https://world.openfoodfacts.org/cgi/search.pl?action=process&tagtype_0=countries&tag_contains_0=contains&tag_0=germany&tagtype_1=ingredients&tag_contains_1=contains&tag_1=sugar&nutriment_0=sugars&nutriment_compare_0=gt&nutriment_value_0=1&sort_by=unique_scans_n&page_size=100&axis_x=energy-kj&axis_y=products_n&action=display&json=true';
   
     xmlhttp.open(method, url);
     xmlhttp.onload = function() {
