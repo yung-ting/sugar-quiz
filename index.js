@@ -38,7 +38,7 @@ function retrieveData() {
             let sugarPer100g = obj.products[i].nutriments.sugars_100g;
             let image = obj.products[i].image_url;
             
-            if (image !== undefined) {
+            if (image !== undefined && quantityCal >= 100 && name !== "") {
                 const productObj = {
                     name: name,
                     quantity: quantity,
