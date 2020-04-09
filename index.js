@@ -24,7 +24,7 @@ let accumQuestions = 0;
 function retrieveData() {
     const xmlhttp = new XMLHttpRequest();
     const method = 'GET';
-    const url = 'https://world.openfoodfacts.org/cgi/search.pl?action=process&tagtype_0=countries&tag_contains_0=contains&tag_0=germany&nutriment_0=sugars&nutriment_compare_0=gt&nutriment_value_0=1&sort_by=unique_scans_n&page_size=20&axis_x=energy-kj&axis_y=products_n&action=display&json=true';
+    const url = 'https://world.openfoodfacts.org/cgi/search.pl?action=process&tagtype_0=countries&tag_contains_0=contains&tag_0=germany&nutriment_0=sugars&nutriment_compare_0=gt&nutriment_value_0=1&sort_by=unique_scans_n&page_size=200&axis_x=energy-kj&axis_y=products_n&action=display&json=true';
   
     xmlhttp.open(method, url);
     xmlhttp.onload = function() {
@@ -37,14 +37,17 @@ function retrieveData() {
             let quantityCal = Number.parseInt(obj.products[i].quantity);
             let sugarPer100g = obj.products[i].nutriments.sugars_100g;
             let image = obj.products[i].image_url;
-            const productObj = {
-                name: name,
-                quantity: quantity,
-                sugarPer100g: sugarPer100g,
-                image: image,
-                cubeCount: (quantityCal / 100) * sugarPer100g / 4,
+            
+            if (image !== undefined) {
+                const productObj = {
+                    name: name,
+                    quantity: quantity,
+                    sugarPer100g: sugarPer100g,
+                    image: image,
+                    cubeCount: (quantityCal / 100) * sugarPer100g / 4,
+                }
+                newArr.push(productObj);
             }
-            newArr.push(productObj);
         }
         products = newArr;
         updateProducts();
