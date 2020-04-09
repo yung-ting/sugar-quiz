@@ -1,5 +1,6 @@
-let products;
-
+//list of product objects
+let products; 
+//page elements
 let productQtyElem = document.getElementById("product-qty");
 let productNameElem = document.getElementById("product-name");
 let productImgElem = document.getElementById("product-img");
@@ -11,16 +12,17 @@ let questionCounts = document.getElementById('points-base');
 let pointCounts = document.getElementById('points');
 let resultTexts = document.getElementById('result-text');
 let startPage = document.getElementById('start-page');
-//hide and show
-let hiddenBtn = document.querySelector('.btn-next-product');
-let showBtn = document.querySelector('.btn-see-results');
-let mainPage = document.getElementById('main-page');
-let resultPage =document.getElementById('result-page');
-
 let cubeImgContainer = document.getElementById("sugar-cube-counts");
 let accumQuestions = 0;
+//hide and show page and buttons
+let nextProdBtn = document.querySelector('.btn-next-product');
+let resultBtn = document.querySelector('.btn-see-results');
+let mainPage = document.getElementById('main-page');
+let resultPage = document.getElementById('result-page');
+let startBtn = document.getElementById('btn-start');
+let playAgainBtn = document.querySelector('.btn-play-again');
 
-//retrieve data
+//retrieve data to products list
 function retrieveData() {
     const xmlhttp = new XMLHttpRequest();
     const method = 'GET';
@@ -86,8 +88,7 @@ function reloadMainPage() {
 function compareNumbers() {
     //when click on check-fact btn, it compares input number with products.cubeCount
     let inputCount = document.getElementById('guessOfUser').value;
-    //document.getElementById('demo').innerHTML = inputCount;
-    
+   
     if (inputCount == Math.round(products[productIndx].cubeCount)) {
         productSugarElem.innerText = Math.round(products[productIndx].cubeCount);
         document.getElementById('outcome-text').innerHTML = `Exactly! It contains about ${productSugarElem.innerText} cubes!`
@@ -99,23 +100,52 @@ function compareNumbers() {
     }
 }
 
-function showNextProdBtn() {
-    if (accumQuestions == 5) {
-        hiddenBtn.style.display = 'none';
+function updateCubesBySec() {
+    for (let i = 0; i < productSugarElem.innerText; i ++ ) { 
+        task(i); 
+     } 
+       
+    function task(i) { 
+       setTimeout(function() { 
+           let cubeImgElem = document.createElement('img');
+           cubeImgElem.src =  'images/sugar cube.svg'; 
+           cubeImgElem.setAttribute('class','sugar-cube-img');
+           cubeImgContainer.appendChild(cubeImgElem);
+
+           if (i == productSugarElem.innerText - 1) {
+            hideOrShowNextProdBtn();
+            hideOrShowResultBtn(); 
+           }
+       }, 44 * i); 
+     } 
+}
+
+function showResultTexts() {
+    if (pointCounts.innerHTML >= 3) {
+        resultTexts.innerHTML = "You are amzing!";
     } else {
-        hiddenBtn.style.display = 'block';
+        resultTexts.innerHTML = "You don't know what you are eating!";
+    }
+}
+
+//pages transitions 
+function hideOrShowNextProdBtn() {
+    if (accumQuestions == 5) {
+        nextProdBtn.style.display = 'none'; 
+    } else {
+        nextProdBtn.style.display = 'block';
     }
 }
 
 function onlyHideProdBtn() {
-    hiddenBtn.style.display = 'none';
+    nextProdBtn.style.display = 'none';
 }
 
 function hideOrShowResultBtn() {
     if (accumQuestions >= 5) {
-        showBtn.style.display = "block";
+        resultBtn.style.display = "block";
     } else {
-        showBtn.style.display = "none";
+        resultBtn.style.display = "none";
     }
 }
 
@@ -128,20 +158,19 @@ function showStartPageElem() {
 }
 
 function hideStartBtn() {
-    document.getElementById('btn-start').style.display = 'none';
+    startBtn.style.display = 'none';
 }
 
 function showStartBtn() {
-    document.getElementById('btn-start').style.display = 'block';
+    startBtn.style.display = 'block';
 }
 
-
 function hidePlayAgainBtn() {
-    document.querySelector('.btn-play-again').style.display = "none";
+    playAgainBtn.style.display = "none";
 }
 
 function showPlayAgainBtn() {
-    document.querySelector('.btn-play-again').style.display = "block";
+    playAgainBtn.style.display = "block";
 }
 
 function hideMainPageElem() {
@@ -164,36 +193,8 @@ function hideLoader() {
     document.getElementById('loader').style.display = "none";
 }
 
-function updateCubesBySec() {
-    for (let i = 0; i < productSugarElem.innerText; i ++ ) { 
-        task(i); 
-     } 
-       
-    function task(i) { 
-       setTimeout(function() { 
-           let cubeImgElem = document.createElement('img');
-           cubeImgElem.src =  'images/sugar cube.svg'; 
-           cubeImgElem.setAttribute('class','sugar-cube-img');
-           cubeImgContainer.appendChild(cubeImgElem);
-
-           if (i == productSugarElem.innerText - 1) {
-            showNextProdBtn();
-            hideOrShowResultBtn(); 
-           }
-       }, 44 * i); 
-     } 
-}
-
 function resetSugarCubes() {
     cubeImgContainer.innerHTML = "";
-}
-
-function showResultTexts() {
-    if (pointCounts.innerHTML >= 3) {
-        resultTexts.innerHTML = "You are amzing!";
-    } else {
-        resultTexts.innerHTML = "You don't know what you are eating!";
-    }
 }
 
 function disableBtns() {
@@ -244,7 +245,7 @@ document.querySelector('.btn-play-again').addEventListener('click', () => {
     resetSugarCubes();
     
     hidePlayAgainBtn();
-    showNextProdBtn();
+    hideOrShowNextProdBtn();
     hideOrShowResultBtn();
     enableBtns();
     hideResultPageElem();
