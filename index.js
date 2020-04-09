@@ -1,3 +1,5 @@
+let products;
+
 let productQtyElem = document.getElementById("product-qty");
 let productNameElem = document.getElementById("product-name");
 let productImgElem = document.getElementById("product-img");
@@ -18,9 +20,42 @@ let resultPage =document.getElementById('result-page');
 let cubeImgContainer = document.getElementById("sugar-cube-counts");
 let accumQuestions = 0;
 
+//retrieve data
+function retrieveData() {
+    const xmlhttp = new XMLHttpRequest();
+    const method = 'GET';
+    const url = 'https://world.openfoodfacts.org/cgi/search.pl?action=process&tagtype_0=countries&tag_contains_0=contains&tag_0=germany&nutriment_0=sugars&nutriment_compare_0=gt&nutriment_value_0=1&sort_by=unique_scans_n&page_size=20&axis_x=energy-kj&axis_y=products_n&action=display&json=true';
+  
+    xmlhttp.open(method, url);
+    xmlhttp.onload = function() {
+        const json = xmlhttp.response;
+        const obj = JSON.parse(json);
+        let newArr = [];
+        for (let i = 0; i < obj.products.length; i++) {
+            let name = obj.products[i].product_name;
+            let quantity = obj.products[i].quantity;
+            let quantityCal = Number.parseInt(obj.products[i].quantity);
+            let sugarPer100g = obj.products[i].nutriments.sugars_100g;
+            let image = obj.products[i].image_url;
+            const productObj = {
+                name: name,
+                quantity: quantity,
+                sugarPer100g: sugarPer100g,
+                image: image,
+                cubeCount: (quantityCal / 100) * sugarPer100g / 4,
+            }
+            newArr.push(productObj);
+        }
+        products = newArr;
+        updateProducts();
+    };
+    xmlhttp.send();
+}
+
+//pages' functions
 function updateProducts() {
     productIndx = Math.floor(Math.random() * products.length);
-    productQtyElem.innerText = products[productIndx].qty;
+    productQtyElem.innerText = products[productIndx].quantity;
     productNameElem.innerText = products[productIndx].name;
     productImgElem.src = products[productIndx].image;
     inputField.value = 0;
@@ -32,7 +67,7 @@ function updateProducts() {
 
 function reloadMainPage() {
     productIndx = Math.floor(Math.random() * products.length);
-    productQtyElem.innerText = products[productIndx].qty;
+    productQtyElem.innerText = products[productIndx].quantity;
     productNameElem.innerText = products[productIndx].name;
     productImgElem.src = products[productIndx].image;
     inputField.value = 0;
@@ -55,16 +90,20 @@ function compareNumbers() {
     }
     else {
         productSugarElem.innerText = Math.round(products[productIndx].cubeCount);
-        document.getElementById('outcome-text').innerHTML = `Nope! It contains about ${productSugarElem.innerText} cubes!`
+        document.getElementById('outcome-text').innerHTML = `It actually contains ${productSugarElem.innerText} cubes! Surprise?`
     }
 }
 
 function showNextProdBtn() {
     if (accumQuestions == 5) {
-        hiddenBtn.style.visibility = 'hidden';
+        hiddenBtn.style.display = 'none';
     } else {
-        hiddenBtn.style.visibility = 'visible';
+        hiddenBtn.style.display = 'block';
     }
+}
+
+function onlyHideProdBtn() {
+    hiddenBtn.style.display = 'none';
 }
 
 function hideOrShowResultBtn() {
@@ -96,7 +135,7 @@ function hideMainPageElem() {
 }
 
 function showMainPageElem() {
-    mainPage.style.display = "block";
+    mainPage.style.display = "flex";
 }
 
 function hideResultPageElem() {
@@ -104,7 +143,7 @@ function hideResultPageElem() {
 }
 
 function showResultPageElem() {
-    resultPage.style.display = "block";
+    resultPage.style.display = "flex";
 }
 
 function updateCubesBySec() {
@@ -143,12 +182,12 @@ function enableBtns() {
     document.querySelector('.btn-check-fact').disabled = false;
 }
 
+retrieveData();
 hideMainPageElem();
-updateProducts();
 hideOrShowResultBtn();
 hidePlayAgainBtn();
 hideResultPageElem();
-
+onlyHideProdBtn();
 
 //EventListeners
 document.querySelector('.btn-start').addEventListener('click', () => {
@@ -160,14 +199,15 @@ document.querySelector('.btn-check-fact').addEventListener('click', () => {
     compareNumbers();
     updateCubesBySec();
     disableBtns();
+    showNextProdBtn();
   });
 
 document.querySelector('.btn-next-product').addEventListener('click', () => {
     updateProducts(); 
     resetSugarCubes();
-    showNextProdBtn();
     hideOrShowResultBtn(); 
     enableBtns();
+    onlyHideProdBtn();
   });
 
 document.querySelector('.btn-see-results').addEventListener('click', () => {
@@ -187,4 +227,8 @@ document.querySelector('.btn-play-again').addEventListener('click', () => {
     hideOrShowResultBtn();
     enableBtns();
     hideResultPageElem();
+    onlyHideProdBtn();
 });
+
+
+
