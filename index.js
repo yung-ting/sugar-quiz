@@ -51,6 +51,8 @@ function retrieveData() {
         }
         products = newArr;
         updateProducts();
+        hideLoader()
+        showStartBtn();
     };
     xmlhttp.send();
 }
@@ -125,6 +127,15 @@ function showStartPageElem() {
     startPage.style.display = "block";
 }
 
+function hideStartBtn() {
+    document.getElementById('btn-start').style.display = 'none';
+}
+
+function showStartBtn() {
+    document.getElementById('btn-start').style.display = 'block';
+}
+
+
 function hidePlayAgainBtn() {
     document.querySelector('.btn-play-again').style.display = "none";
 }
@@ -147,6 +158,10 @@ function hideResultPageElem() {
 
 function showResultPageElem() {
     resultPage.style.display = "flex";
+}
+
+function hideLoader() {
+    document.getElementById('loader').style.display = "none";
 }
 
 function updateCubesBySec() {
@@ -186,6 +201,7 @@ function enableBtns() {
 }
 
 retrieveData();
+hideStartBtn();
 hideMainPageElem();
 hideOrShowResultBtn();
 hidePlayAgainBtn();
