@@ -66,9 +66,9 @@ function updateProducts() {
     productNameElem.innerText = products[productIndx].name;
     productImgElem.src = products[productIndx].image;
     inputField.value = 0;
-    questionCounts.innerHTML ++
     document.getElementById('outcome-text').innerHTML = "";
 
+    questionCounts.innerHTML ++
     accumQuestions ++
 }
 
@@ -79,6 +79,7 @@ function reloadMainPage() {
     productImgElem.src = products[productIndx].image;
     inputField.value = 0;
     document.getElementById('outcome-text').innerHTML = "";
+    
     questionCounts.innerHTML = 1;
     accumQuestions = 1;
     pointCounts.innerHTML = 0;

@@ -27,7 +27,7 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    padding-top: 2.3rem;
+    padding-top: 4rem;
     background-image:url("dog-eat-too-much-zucker");
     background-position: 0 20%;
     height: 100%;
@@ -114,8 +114,6 @@ body {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    border: thin;
-    border-width: 2rem;
 }
 
 .input-field {
