@@ -79,7 +79,7 @@ function reloadMainPage() {
     productImgElem.src = products[productIndx].image;
     inputField.value = 0;
     document.getElementById('outcome-text').innerHTML = "";
-    
+
     questionCounts.innerHTML = 1;
     accumQuestions = 1;
     pointCounts.innerHTML = 0;
@@ -97,7 +97,7 @@ function compareNumbers() {
     }
     else {
         productSugarElem.innerText = Math.round(products[productIndx].cubeCount);
-        document.getElementById('outcome-text').innerHTML = `It actually contains ${productSugarElem.innerText} cubes! Surprise?`
+        document.getElementById('outcome-text').innerHTML = `It actually contains ${productSugarElem.innerText} cubes of free sugars! Surprise?`
     }
 }
 
