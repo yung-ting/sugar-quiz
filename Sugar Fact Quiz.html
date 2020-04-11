@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta charset="UTF-8">
+  <title>Sugar Fact Quiz</title>
+  
+   
+<link rel="stylesheet" href="Sugar%20Fact%20Quiz_files/style.css"><link href="Sugar%20Fact%20Quiz_files/css2.css" rel="stylesheet"></head>
+
+<body>
+<div id="start-page" class="start-page" style="display: none;">
+  <img class="start-page-icon" src="Sugar%20Fact%20Quiz_files/sugar-cubes.png" alt="">
+  <div class="start-page-text">
+    <h1>How much sugar have you been eating?</h1>
+    <p>The WHO suggests that an adult shall intake less than 50 grams 
+free sugars, about 13 sugar cubes per day. You may be suprised by the 
+fact.</p>
+  </div>
+  <div><button class="btn-start" id="btn-start" style="display: block;">Start the game</button></div>
+  <div class="lds-ripple" id="loader" style="display: none;"><div></div><div></div></div>
+</div>
+
+<div id="main-page" class="main-page" style="display: flex;">
+  <section class="upper-part"> 
+    <header>
+      <span id="points">0</span> / <span id="points-base">2</span> points
+    </header>
+    <div id="question" class="question">
+      <h2>How much sugar is contained in <span id="product-qty">220ml</span> <span id="product-name">Tomato ketchup</span>?</h2>
+    </div>
+  </section> 
+
+  <section class="product-info">
+    <div class="product-image-box">
+      <img id="product-img" class="product-img" src="Sugar%20Fact%20Quiz_files/front_en.jpg" alt="product">
+    </div>
+    <div class="input-container">
+      <div class="input-and-unit">
+        <input class="input-field" type="number" id="guessOfUser" min="0" max="150" value="0">
+        <label for="guessOfUser" class="unit">sugar cubes (4g)</label> <br><br>
+      </div> 
+      <button class="btn-check-fact">Check out the fact</button><br><br>
+    </div>
+  </section>
+  
+  <section class="facts-container">
+    <div id="outcome-text"></div>
+    <div id="sugar-cube-counts" class="sugar-cube-counts"></div>
+  </section>
+  
+  <div class="bottom-buttons">
+    <button type="reset" class="btn-next-product" style="display: none;">Next product</button><br><br>
+    <button type="reset" class="btn-see-results" style="display: none;">See results</button><br><br>
+  </div>
+</div>
+
+<div id="result-page" class="result-page" style="display: none;">
+    <p id="result-text"></p> 
+    <button class="btn-play-again" style="display: none;">Play again</button><br><br>
+</div>
+    <script src="Sugar%20Fact%20Quiz_files/index.js"></script>
+<!-- Code injected by live-server -->
+<script type="text/javascript">
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+</body></html>

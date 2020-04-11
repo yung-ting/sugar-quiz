@@ -6,7 +6,6 @@ body {
     font-family: 'Roboto Mono', monospace;
     height: 100%;
     margin: 0;
-    font-size: 16px;
 }
 
 .start-page {
@@ -40,10 +39,10 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-left: 6%;
-    margin-right: 6%;
-    padding-top: 2.5rem;
-    padding-bottom: 2.5rem;
+    margin: 0;
+    padding-top: 0.5rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
     color:#F36B6B;
 }
 
@@ -55,12 +54,19 @@ body {
 .question {
     color: navy;
     padding-bottom: 2.5rem;
+/* below are new */
+    width: 85%; 
+    display: flex;
+    text-align: left;
+    /* height: 80%; */ 
+
 }
 
 .upper-part {
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-top: 2rem;
 }
 
 .input-container {
@@ -71,8 +77,8 @@ body {
    padding: 2rem;
    color:  #F36B6B;
    border-radius: 20px;
-
-    width: 60%;
+/* below are new */
+    width: 35rem;
     height: 15rem;
 }
 
@@ -108,6 +114,8 @@ body {
     align-items: center;
     padding-bottom: 2rem;
     padding-top: 3rem;
+/* below are new */
+    width: 85%;
 }
 
 .sugar-cube-counts {
@@ -117,13 +125,19 @@ body {
 }
 
 .input-field {
+/*  */
     display: flex;
-    width: 50%;
+    width: 60%;
+ /* above are new */
     font-family: 'Roboto Mono', monospace;
     display:inline-block;
     padding: top 0.5em; 
     padding-left: 1rem; 
     padding-right: 1rem;
+ /* below are originals */
+    /* padding-left: 1px; 
+    padding-right: 1px; */
+/*  */
     border: 0;
     border-bottom-width: 4px;
     border-bottom-style: solid;
@@ -145,7 +159,7 @@ body {
     border:0.1em solid #F36B6B;
     background-color: #F36B6B;
     color: white;
-    font-size: 16px;
+    font-size: medium;
     text-decoration:none;
     font-weight: 200;
 }
@@ -200,8 +214,7 @@ body {
     color: navy;
     text-align:center;
     transition: all 0.2s;
-    font-size: 1.3rem;
-    background-color: transparent;
+    font-size: medium;
 }
 
 .btn-see-results {
@@ -214,8 +227,7 @@ body {
     color: navy;
     text-align:center;
     transition: all 0.2s;
-    font-size: 1.3rem;
-    background-color: transparent;
+    font-size: medium;
 }
 
 .sugar-cube-img {
@@ -224,13 +236,9 @@ body {
 }
 
 h2 {
-    font-size: 32px;
-    /* text-align: center; */
+    font-size: 21pt;
+    text-align: center;
     font-weight: 200;
-}
-
-.outcome-text {
-    font-size: 16px;
 }
 
 .start-page-icon {
